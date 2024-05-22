@@ -92,3 +92,10 @@ tasks.withType(JavaCompile).configureEach {
 gradle.startParameter.continueOnFailure = true
 
 test.finalizedBy(aggregate)
+
+sonar {
+    properties {
+        property "sonar.projectKey", "prueba-jenkins"
+        property "sonar.projectName", "prueba jenkins"
+    }
+}
