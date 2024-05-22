@@ -1,5 +1,5 @@
 pipeline {
-  agent { label 'linux' }
+  agent { label 'windows' }
   options {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
@@ -7,7 +7,7 @@ pipeline {
     stage('Scan') {
       steps {
         withSonarQubeEnv(installationName: 'sq1') { 
-          sh './gradlew sonar -Dsonar.projectKey=prueba-jenkins -Dsonar.projectName="prueba jenkins" -Dsonar.host.url=https://90d0-201-68-218-99.ngrok-free.app -Dsonar.token=sqp_78b25d609f15b86dbfcb738324250077cfa44c3c'
+          cmd './gradlew sonar -Dsonar.projectKey=prueba-jenkins -Dsonar.projectName="prueba jenkins" -Dsonar.host.url=https://90d0-201-68-218-99.ngrok-free.app -Dsonar.token=sqp_78b25d609f15b86dbfcb738324250077cfa44c3c'
         }
       }
     }
